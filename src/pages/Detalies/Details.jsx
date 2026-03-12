@@ -47,7 +47,7 @@ const {data,isError,isFetching}=useQuery({
                      details={true}
                      ></PostCard> 
                      
-      }
+     
       </div>
   )
 }
