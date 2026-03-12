@@ -5,7 +5,6 @@ import axios from 'axios'
 import { baseUrl } from '../../MainData'
 import PostCard from '../../comps/PostCard'
 import { useParams } from 'react-router-dom'
-import PostShareCard from '../../comps/postShareCard'
  export function fetchSinglePost(id)
   {
     return axios.get(`${baseUrl}/posts/${id}`,
