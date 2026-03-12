@@ -8,6 +8,8 @@ import CreatePost from '../../comps/CreatePost';
 import SuggestedPeople from '../../comps/SuggestedPeople';
 import SharePost from '../SharePosts/SharePost';
 import PostShareCard from '../../comps/postShareCard';
+import { Button } from '@heroui/react';
+import { Link } from 'react-router-dom';
 
 // 2. Accept pageParam and inject it into the API URL
 const getAllPosts = ({ pageParam = 1 }) => {
@@ -40,7 +42,7 @@ export default function Home() {
       return allPages.length + 1; // Go to the next page
     }
   });
-console.log(data?.pages?.data?.data);
+
 
   if (isLoading) return <LoaderHome />;
   
@@ -48,8 +50,9 @@ console.log(data?.pages?.data?.data);
     console.error("Error fetching posts");
     return <div className="text-white text-center py-10">Failed to load posts. Please try again.</div>;
   }
-console.log(data?.pages[0]?.data);
 
+  console.log(data?.pages);
+  
   return (
     <div className="bg-[#101622] py-10">
       <CreatePost />
@@ -61,7 +64,7 @@ console.log(data?.pages[0]?.data);
               {page?.data?.data?.posts?.map((post) => (
                 
                 
-                post.isShare?<PostShareCard data={post}/>:
+                // post.isShare?<><p>This Post shared Go To details</p> <Link to={"/details/"+post._id} ><Button>Details</Button></Link></> :
                 <PostCard 
                   key={post._id || post.id}
                   posts={post} 

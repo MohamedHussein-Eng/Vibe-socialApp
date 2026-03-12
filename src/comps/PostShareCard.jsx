@@ -11,7 +11,7 @@ export default function PostShareCard({data}) {
     <div>
         <Card className='bg-primary w-3/4 mx-auto'>
                <PostHeader name={data?.data?.data.post.user.name} userName={data?.data?.data.post.user.username} userPhoto={data?.data?.data.post.user.photo} id={data?.data?.data.post.user._id} />
-      <PostBody body={data?.data?.data.post.body}></PostBody>
+      <PostBody body={data?.data?.data?.post.body}></PostBody>
        <PostCard key={data?.data?.data.post.id} posts={data?.data?.data.post.sharedPost} 
                       body={data?.data?.data.post.sharedPost.body}
                       image={data?.data?.data.post.sharedPost.image??"" }
