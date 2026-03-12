@@ -33,8 +33,8 @@ const {data,isError,isFetching}=useQuery({
   if(isError) return "Error"
   return (
     <div className='my-10'>
-      {data?.data?.data.post.isShare?
-      <PostShareCard data={data}></PostShareCard>:
+      {/* {data?.data?.data.post.isShare?
+       <PostShareCard data={data}></PostShareCard>: */}
       <PostCard key={data?.data?.data.post.id} posts={data?.data?.data.post} 
                 body={data?.data?.data.post.body}
                 image={data?.data?.data.post.image??"" }
