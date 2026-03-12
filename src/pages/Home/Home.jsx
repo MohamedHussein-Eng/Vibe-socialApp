@@ -6,10 +6,7 @@ import LoaderHome from '../../comps/LoaderHome';
 import PostCard from '../../comps/PostCard';
 import CreatePost from '../../comps/CreatePost';
 import SuggestedPeople from '../../comps/SuggestedPeople';
-import SharePost from '../SharePosts/SharePost';
-import PostShareCard from '../../comps/postShareCard';
-import { Button } from '@heroui/react';
-import { Link } from 'react-router-dom';
+
 
 // 2. Accept pageParam and inject it into the API URL
 const getAllPosts = ({ pageParam = 1 }) => {
