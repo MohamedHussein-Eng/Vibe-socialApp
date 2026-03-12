@@ -51,9 +51,11 @@ export default function LoginForm() {
     setLoding(true)
     axios.post(`${baseUrl}/users/signin`, data)
       .then((req) => {
+        
+        
           localStorage.setItem("token",req.data?.data.token)
           setIslogin(localStorage.getItem("token"))
-        
+       
          navigate('/'); 
       })
       .catch((err) => {

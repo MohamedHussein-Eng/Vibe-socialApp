@@ -10,6 +10,6 @@ export default function ProtectedAuth({children}) {
     return <Navigate to={"/"}></Navigate>
  }
  else{
-    return children
+    return <>{children}</>
  }
 }

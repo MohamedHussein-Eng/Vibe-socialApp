@@ -1,20 +1,38 @@
-import { useState } from "react";
-import {  createContext } from "react";
+import axios from "axios";
+import { useState, createContext } from "react";
 import React from 'react'
+import { baseUrl } from "../MainData";
+import { useQuery } from '@tanstack/react-query';
 
-export const AuthContext=createContext()
+export const AuthContext = createContext();
 
+export default function AuthContextProvider({ children }) {
+  // Convert token presence to a boolean
+  const [isLogin, setIslogin] = useState(!!localStorage.getItem("token"));
 
+  // 1. The fetcher function
+  const fetchUserData = async () => {
+    const response = await axios.get(`${baseUrl}/users/profile-data`, {
+      headers: {
+        "AUTHORIZATION": `Bearer ${localStorage.getItem("token")}`
+      }
+    });
+    return response?.data?.data?.user;
+  };
 
-export default function AuthContextProvider({children}) {
-    const[isLogin,setIslogin]=useState(localStorage.getItem("token"))
-   
-    
+  const { data: userData, isLoading } = useQuery({
+    queryKey: ['userProfile'], 
+    queryFn: fetchUserData,
+    enabled: !!isLogin, 
+  });
+
   return (
-    <AuthContext.Provider value={{isLogin,setIslogin}}>
     
-      {children}
-    
+    <AuthContext.Provider value={{ isLogin, setIslogin, userData, isLoading }}>
+      <>
+         {children}
+      </>
+   
     </AuthContext.Provider>
   )
 }

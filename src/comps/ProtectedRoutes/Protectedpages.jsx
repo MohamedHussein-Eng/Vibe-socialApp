@@ -7,7 +7,7 @@ export default function Protectedpages({children}) {
  
   if(isLogin)
   {
-    return children
+   return <>{children}</>
   }
   else{
      return <Navigate to={"/login"}></Navigate>
