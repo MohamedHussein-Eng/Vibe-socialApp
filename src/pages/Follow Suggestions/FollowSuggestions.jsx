@@ -35,7 +35,7 @@ export default function FollowSuggestions() {
       return allPages.length + 1;
     }
   });
-console.log(data);
+console.log(data?.pages);
 
   if (isLoading) return <Spinner />;
 

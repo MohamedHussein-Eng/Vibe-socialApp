@@ -50,6 +50,7 @@ export default function ProfileHeader({ postsCount, userData, profile, isFollowi
       toast.success(req?.data?.message)
       quaryClient.invalidateQueries(["userProfile"])
       quaryClient.invalidateQueries(["getuserpost"])
+      
 
       onclose()
 
